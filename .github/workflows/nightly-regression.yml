@@ -1,0 +1,52 @@
+name: Nightly Cross-Browser Regression
+
+on:
+  schedule:
+    - cron: '30 1 * * 1-5'
+  workflow_dispatch:
+
+concurrency:
+  group: nightly-regression
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  regression:
+    name: ${{ matrix.browser }} shard ${{ matrix.shard }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
+        shard: ['1/3', '2/3', '3/3']
+    env:
+      CI: 'true'
+      TEST_ENV: qa
+      TEST_USERNAME: ${{ secrets.TEST_USERNAME }}
+      TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium ${{ matrix.browser }}
+      - name: Create reusable authentication state
+        run: npx playwright test --project=setup
+      - name: Run regression shard
+        run: npx playwright test --project=${{ matrix.browser }} --no-deps --grep @regression --shard=${{ matrix.shard }}
+      - name: Upload shard evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nightly-${{ matrix.browser }}-${{ strategy.job-index }}
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: warn
+          retention-days: 21
