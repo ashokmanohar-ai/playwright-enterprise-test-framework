@@ -1,0 +1,12 @@
+services:
+  playwright-tests:
+    build:
+      context: .
+    env_file:
+      - .env
+    environment:
+      CI: 'true'
+    command: ['test:smoke']
+    volumes:
+      - ./playwright-report:/workspace/playwright-report
+      - ./test-results:/workspace/test-results

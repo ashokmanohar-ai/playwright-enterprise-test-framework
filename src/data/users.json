@@ -1,0 +1,22 @@
+{
+  "invalidUsers": [
+    {
+      "description": "unknown user",
+      "username": "unknown-user",
+      "password": "invalid-password",
+      "expected": "Username and password do not match"
+    },
+    {
+      "description": "missing password",
+      "username": "unknown-user",
+      "password": "",
+      "expected": "Password is required"
+    },
+    {
+      "description": "missing username",
+      "username": "",
+      "password": "invalid-password",
+      "expected": "Username is required"
+    }
+  ]
+}
