@@ -283,3 +283,50 @@ inputs. Credentials remain runtime values. Generated data is independent per tes
 cleanup is explicit. See [Test Data Management](docs/test-data-management.md).
 
 ## 24. Security Considerations
+
+Credentials, session state, reports, and local environment files are ignored. Logs redact passwords,
+tokens, authorisation headers, and cookies. CI permissions are read-only. Review [Security Policy](SECURITY.md).
+
+## 25. Troubleshooting
+
+Use `npm run validate:env`, then inspect the HTML report, trace, screenshot, video, and structured
+logs. [Troubleshooting](docs/troubleshooting.md) distinguishes framework defects from public target
+outages and credential/configuration errors.
+
+## 26. Design Decisions
+
+- Prefer native Playwright capabilities over wrapper-heavy abstractions.
+- Use API setup where it reduces slow, brittle UI preconditions.
+- Keep assertions in tests except meaningful page-level validation helpers.
+- Retry only in CI and retain evidence; retries do not excuse flaky tests.
+- Limit visual coverage to stable, high-value surfaces.
+
+## 27. Limitations
+
+- Public demo availability and rate limits are outside this repository's control.
+- JSONPlaceholder acknowledges mutations but does not persist them.
+- Edge requires an installed Edge channel and is opt-in.
+- Automated accessibility finds only issues detectable by Axe.
+- Visual baselines are designed for the pinned Linux browser/container environment.
+
+## 28. Roadmap
+
+The core framework remains deterministic and AI-independent. A future sibling
+`ai-test-failure-triage-agent` can consume traces, logs, and screenshots to suggest probable root
+causes without changing test verdicts. Kubernetes execution, distributed blob-report merging, and
+contract-provider verification are natural scale extensions.
+
+## 29. Interview Talking Points
+
+Use [Interview Walkthrough](docs/interview-walkthrough.md) for two-minute and five-minute
+explanations, scaling decisions, flaky-test governance, CI design, secrets, Kubernetes, ALM
+integration, and responsible AI-assisted failure analysis.
+
+## 30. Contributing
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md). Every change must pass type checking, lint, formatting,
+relevant tests, and evidence review.
+
+## 31. License
+
+MIT — see [LICENSE](LICENSE).
