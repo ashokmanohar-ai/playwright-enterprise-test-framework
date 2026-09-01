@@ -41,11 +41,18 @@ jobs:
       - name: Validate source and workflows
         run: npm run validate
 
-      - name: Run smoke, API, and accessibility checks
+      - name: Run credentialed smoke, API, and accessibility checks
+        if: env.TEST_USERNAME != '' && env.TEST_PASSWORD != ''
         run: npx playwright test --project=chromium --project=api --grep "@smoke|@accessibility"
+
+      - name: Run credential-free local API checks
+        if: env.TEST_USERNAME == '' || env.TEST_PASSWORD == ''
+        run: npm run test:api:local
 
       - name: Evaluate release quality gate
         if: always()
+        env:
+          QUALITY_GATE_REQUIRE_A11Y_RESULTS: ${{ env.TEST_USERNAME != '' && env.TEST_PASSWORD != '' }}
         run: npm run quality-gate
 
       - name: Upload Playwright report
