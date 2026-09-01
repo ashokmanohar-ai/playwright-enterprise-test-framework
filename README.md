@@ -16,12 +16,12 @@ Enterprise-grade Quality Engineering reference implementation using Playwright +
 
 > **60-second decision:** this repository proves Test Architect-level framework design: native Playwright + strict TypeScript, UI/API/integration coverage, scalable execution, useful failure evidence, and governed CI/CD release decisions.
 
-| Recruiter question | Verifiable answer |
-| --- | --- |
-| **Problem** | Delivery teams need fast PR feedback and deeper release evidence without maintaining disconnected automation stacks. |
-| **Architecture** | Readable tests use typed fixtures, Page Objects, API clients, Zod contracts and data factories; Playwright produces browser/API evidence consumed by a configurable quality gate. |
-| **Evidence** | Cross-browser execution, three-way sharding, deterministic local API tests, accessibility and visual checks, structured logs, traces, screenshots, HTML/JSON/JUnit reports, Docker and GitHub Actions. |
-| **Role signal** | Senior/Lead SDET, Test Architect, Automation Architect and Quality Engineering Architect. |
+| Recruiter question | Verifiable answer                                                                                                                                                                                      |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Problem**        | Delivery teams need fast PR feedback and deeper release evidence without maintaining disconnected automation stacks.                                                                                   |
+| **Architecture**   | Readable tests use typed fixtures, Page Objects, API clients, Zod contracts and data factories; Playwright produces browser/API evidence consumed by a configurable quality gate.                      |
+| **Evidence**       | Cross-browser execution, three-way sharding, deterministic local API tests, accessibility and visual checks, structured logs, traces, screenshots, HTML/JSON/JUnit reports, Docker and GitHub Actions. |
+| **Role signal**    | Senior/Lead SDET, Test Architect, Automation Architect and Quality Engineering Architect.                                                                                                              |
 
 **Five-minute proof — credential-free API path**
 
