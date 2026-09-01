@@ -8,6 +8,32 @@
 
 Enterprise-grade Quality Engineering reference implementation using Playwright + TypeScript.
 
+## Recruiter quick tour
+
+<p align="center">
+  <img src="docs/assets/recruiter-walkthrough.gif" width="100%" alt="66-second recruiter walkthrough of the Playwright Enterprise Test Framework" />
+</p>
+
+> **60-second decision:** this repository proves Test Architect-level framework design: native Playwright + strict TypeScript, UI/API/integration coverage, scalable execution, useful failure evidence, and governed CI/CD release decisions.
+
+| Recruiter question | Verifiable answer |
+| --- | --- |
+| **Problem** | Delivery teams need fast PR feedback and deeper release evidence without maintaining disconnected automation stacks. |
+| **Architecture** | Readable tests use typed fixtures, Page Objects, API clients, Zod contracts and data factories; Playwright produces browser/API evidence consumed by a configurable quality gate. |
+| **Evidence** | Cross-browser execution, three-way sharding, deterministic local API tests, accessibility and visual checks, structured logs, traces, screenshots, HTML/JSON/JUnit reports, Docker and GitHub Actions. |
+| **Role signal** | Senior/Lead SDET, Test Architect, Automation Architect and Quality Engineering Architect. |
+
+**Five-minute proof — credential-free API path**
+
+```bash
+npm ci
+npx playwright install chromium
+cp .env.example .env
+npm run test:api:local
+```
+
+Expected proof: a deterministic Playwright API run with typed contract validation and HTML, JSON and JUnit evidence. The walkthrough and repository use synthetic/public demo data only.
+
 ## 1. Overview
 
 This repository shows how a modern Quality Engineering team can organise browser, REST API,
@@ -257,50 +283,3 @@ inputs. Credentials remain runtime values. Generated data is independent per tes
 cleanup is explicit. See [Test Data Management](docs/test-data-management.md).
 
 ## 24. Security Considerations
-
-Credentials, session state, reports, and local environment files are ignored. Logs redact passwords,
-tokens, authorisation headers, and cookies. CI permissions are read-only. Review [Security Policy](SECURITY.md).
-
-## 25. Troubleshooting
-
-Use `npm run validate:env`, then inspect the HTML report, trace, screenshot, video, and structured
-logs. [Troubleshooting](docs/troubleshooting.md) distinguishes framework defects from public target
-outages and credential/configuration errors.
-
-## 26. Design Decisions
-
-- Prefer native Playwright capabilities over wrapper-heavy abstractions.
-- Use API setup where it reduces slow, brittle UI preconditions.
-- Keep assertions in tests except meaningful page-level validation helpers.
-- Retry only in CI and retain evidence; retries do not excuse flaky tests.
-- Limit visual coverage to stable, high-value surfaces.
-
-## 27. Limitations
-
-- Public demo availability and rate limits are outside this repository's control.
-- JSONPlaceholder acknowledges mutations but does not persist them.
-- Edge requires an installed Edge channel and is opt-in.
-- Automated accessibility finds only issues detectable by Axe.
-- Visual baselines are designed for the pinned Linux browser/container environment.
-
-## 28. Roadmap
-
-The core framework remains deterministic and AI-independent. A future sibling
-`ai-test-failure-triage-agent` can consume traces, logs, and screenshots to suggest probable root
-causes without changing test verdicts. Kubernetes execution, distributed blob-report merging, and
-contract-provider verification are natural scale extensions.
-
-## 29. Interview Talking Points
-
-Use [Interview Walkthrough](docs/interview-walkthrough.md) for two-minute and five-minute
-explanations, scaling decisions, flaky-test governance, CI design, secrets, Kubernetes, ALM
-integration, and responsible AI-assisted failure analysis.
-
-## 30. Contributing
-
-Read [CONTRIBUTING.md](CONTRIBUTING.md). Every change must pass type checking, lint, formatting,
-relevant tests, and evidence review.
-
-## 31. License
-
-MIT — see [LICENSE](LICENSE).
