@@ -8,6 +8,16 @@
 
 Enterprise-grade Quality Engineering reference implementation using Playwright + TypeScript.
 
+## 📄 Technical White Paper
+
+**[Playwright MCP for Enterprise Test Automation: Architecture, Security Boundaries and Governance for Agentic Browser Testing](WHITEPAPER.md)**
+
+A practitioner-focused white paper for using Playwright through Model Context Protocol while preserving application authentication, authorization and enterprise security boundaries. It covers browser-state governance, persistent/isolated/extension modes, storage-state protection, least-privilege identities, prompt injection, consequential actions, human approval, deterministic evidence, self-healing boundaries, agent evaluation and CI/CD quality gates.
+
+> **Core principle:** MCP exposes browser automation capability; the browser session carries identity; the application remains authoritative for authorization; and consequential actions must be bounded by policy, evidence and approval.
+
+Citation metadata is available in [`CITATION.cff`](CITATION.cff), with the publication index in [`publications/README.md`](publications/README.md).
+
 ## Recruiter quick tour
 
 <p align="center">
