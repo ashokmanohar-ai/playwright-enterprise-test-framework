@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+message: "If you use or reference this work, please cite it using the metadata below."
+title: "Playwright MCP for Enterprise Test Automation: Architecture, Security Boundaries and Governance for Agentic Browser Testing"
+type: article
+authors:
+  - family-names: Manohar
+    given-names: Ashok Kumar
+version: 1.0.0
+date-released: 2026-09-05
+url: "https://github.com/ashokmanohar-ai/playwright-enterprise-test-framework/blob/main/WHITEPAPER.md"
+repository-code: "https://github.com/ashokmanohar-ai/playwright-enterprise-test-framework"
+license: MIT
+keywords:
+  - Playwright MCP
+  - Playwright
+  - Model Context Protocol
+  - MCP
+  - Enterprise Test Automation
+  - Agentic AI
+  - Browser Automation
+  - Quality Engineering
+  - AI Quality Engineering
+  - Authentication
+  - Authorization
+  - Browser Security
+  - Human-in-the-Loop
+  - CI/CD
+  - Security Boundaries
+  - Agent Evaluation
+  - Test Automation Governance
+abstract: >-
+  An enterprise Quality Engineering framework for using Playwright through the
+  Model Context Protocol while preserving application authentication,
+  authorization and security boundaries. The work defines an
+  Intent-Session-Capability-Authorization-Evidence-Gate model spanning browser
+  profiles, storage state, least-privilege identities, MCP tools, prompt
+  injection, consequential actions, human approval, deterministic evidence,
+  observability, self-healing boundaries, agent evaluation, CI/CD quality gates
+  and governed conversion of exploratory agent workflows into durable
+  Playwright regression tests.
