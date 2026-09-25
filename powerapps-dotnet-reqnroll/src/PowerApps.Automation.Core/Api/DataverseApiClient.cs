@@ -52,7 +52,7 @@ public sealed class DataverseApiClient : IAsyncDisposable
 
     public async Task<(int Status, string Body)> PostAsync(string relativeUrl, object payload)
     {
-        var response = await _request.PostAsync(relativeUrl, new ApiRequestContextPostOptions
+        var response = await _request.PostAsync(relativeUrl, new APIRequestContextOptions
         {
             DataObject = payload
         });
@@ -61,7 +61,7 @@ public sealed class DataverseApiClient : IAsyncDisposable
 
     public async Task<(int Status, string Body)> PatchAsync(string relativeUrl, object payload)
     {
-        var response = await _request.PatchAsync(relativeUrl, new ApiRequestContextPatchOptions
+        var response = await _request.PatchAsync(relativeUrl, new APIRequestContextOptions
         {
             DataObject = payload
         });
